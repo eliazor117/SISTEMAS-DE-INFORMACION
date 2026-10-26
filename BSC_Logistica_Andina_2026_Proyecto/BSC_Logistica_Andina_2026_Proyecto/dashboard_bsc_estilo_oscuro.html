@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DASHBOARD · BSC Logística Andina 2026</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1020;--card:rgba(255,255,255,.045);--ink:#e8edfa;--mut:#7d8bb0;--blue:#4f7cff;--vio:#8a5cff;--ok:#34d399;--wa:#f5b942;--cr:#ff6b81;--line:rgba(255,255,255,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:radial-gradient(circle at 35% 0,#1b2858,#0a1020 65%);padding:18px}
+.shell{max-width:1260px;margin:0 auto;display:grid;grid-template-columns:190px 1fr 290px;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#172350,#0c1430);box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 0 0 1px var(--line)}
+aside{background:rgba(5,10,28,.55);padding:22px 12px}
+.logo{font-weight:800;letter-spacing:.5px;font-size:15px;padding:0 10px 26px}.logo b{color:var(--blue)}
+.sec{color:var(--mut);font-size:11.5px;padding:14px 10px 8px}
+.nv{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:#b7c2de;cursor:pointer;margin-bottom:2px}
+.nv:hover{background:rgba(255,255,255,.05)}.nv.on{color:var(--ok);background:rgba(52,211,153,.08);box-shadow:inset 3px 0 0 var(--ok)}
+.nv .bd{margin-left:auto;font-size:10px;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.1);color:#cdd6ee}.nv .bd.r{background:rgba(255,107,129,.2);color:var(--cr)}
+.ctr{padding:24px 22px;min-width:0}
+h1{font-size:13px;letter-spacing:1.5px;color:#cfd8f0;margin:0 0 16px;font-weight:500}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pill{border:0;padding:8px 16px;border-radius:20px;font-size:11.5px;color:#aab6d6;background:rgba(255,255,255,.07);cursor:pointer;font-weight:600}
+.pill.on{color:#fff;background:linear-gradient(90deg,#3b82f6,#6a5cff);box-shadow:0 6px 18px rgba(79,124,255,.4)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tile{position:relative;height:104px;border-radius:8px;padding:16px;background:linear-gradient(145deg,#1b2851,#141f42);box-shadow:0 10px 24px rgba(0,0,0,.35),inset 0 0 0 1px var(--line);cursor:pointer;overflow:hidden}
+.tile.mid{background:linear-gradient(135deg,#3a6df0,#6b4fe0)}.tile.act{outline:2px solid rgba(255,255,255,.55)}
+.tile .n{font-size:42px;font-weight:300;line-height:1}.tile small{position:absolute;left:16px;bottom:12px;color:rgba(255,255,255,.6);font-size:11px}
+.tile .ic{position:absolute;right:14px;bottom:10px;width:24px;height:24px;border:1.5px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:12px;opacity:.7}
+.cd{margin-top:20px;border-radius:10px;padding:16px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.cd h2{margin:0 0 10px;font-size:11px;letter-spacing:1.2px;color:var(--mut);font-weight:500}.cd h2 b{color:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.two .cd{margin-top:20px}
+svg{display:block;width:100%}.rg{display:flex;justify-content:space-around;gap:6px;flex-wrap:wrap}.rg>div{text-align:center;font-size:11px;color:var(--mut);width:84px}
+.lg{display:flex;gap:14px;justify-content:center;margin-top:10px;font-size:11px;color:var(--mut);flex-wrap:wrap}.lg i{display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid;margin-right:4px}
+.rt{padding:20px 18px;background:rgba(5,10,28,.4)}
+.us{display:flex;align-items:center;gap:10px;margin-bottom:18px}.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8a5cff);display:grid;place-items:center;font-weight:700;font-size:12px}
+.us .bell{margin-left:auto;position:relative;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.07);display:grid;place-items:center}.bell em{position:absolute;top:-3px;right:-3px;background:var(--cr);font-size:9px;font-style:normal;border-radius:8px;padding:0 4px}
+.dp{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;box-shadow:inset 0 0 0 1px var(--line)}
+.dp .lb{font-size:10.5px;color:var(--mut)}.dp .id{font-size:22px;font-weight:700;margin-bottom:12px}.dp .fl{padding:9px 0;border-top:1px solid var(--line)}
+.dp .fl div{color:#6f93ff;font-weight:500;margin-top:2px}.dp .c2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.dp .c2>.fl{padding-right:6px}
+.rb{display:flex;align-items:center;gap:8px;font-size:11.5px;margin-top:6px;color:#b7c2de}.rb span:first-child{width:74px}.rb .t{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden}.rb .t i{display:block;height:100%;border-radius:4px}.rb b{width:44px;text-align:right}.rb.s{color:#fff;font-weight:700}
+.st{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700}
+.foot{max-width:1260px;margin:12px auto 0;text-align:center;color:var(--mut);font-size:11.5px}
+@media(max-width:1000px){.shell{grid-template-columns:1fr}aside{display:flex;overflow-x:auto;padding:10px;gap:4px;align-items:center}.sec{display:none}.logo{padding:0 10px}.nv{white-space:nowrap}.two{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}}
+.login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:1000;}
+.login-box{background:var(--bg);padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.5);}
+.login-box input{margin:5px 0;width:200px;padding:5px;background:var(--card);border:none;color:var(--ink);}
+.login-box button{margin-top:10px;width:100%;background:var(--ok);color:#fff;border:none;padding:5px;cursor:pointer;}
+#loginMsg{margin-top:5px;font-size:12px;}
+</style></head><body>
+<div class="shell">
+<aside id="nav"></aside>
+<section class="ctr">
+<h1>RESUMEN · <span id="ttl"></span></h1>
+<div class="pills" id="pills"></div>
+<div class="tiles" id="tiles"></div>
+<div class="cd"><h2>CUMPLIMIENTO <b>POR KPI</b> <span id="sub" style="margin-left:8px"></span></h2><div id="ch"></div></div>
+<div class="two">
+<div class="cd"><h2>CUMPLIMIENTO <b>POR PERSPECTIVA</b></h2><div class="rg" id="rings"></div></div>
+<div class="cd"><h2>CUMPLIMIENTO <b>GLOBAL</b></h2><div id="gauge"></div></div>
+</div></section>
+<section class="rt"><div class="us"><div class="av">CL</div><div><b>Logística Andina</b><br><span style="color:var(--mut);font-size:11px">BSC 2026</span></div><div class="bell">🔔<em id="bn"></em></div></div><div class="dp" id="dp"></div></section>
+</div>
+<div class="foot">Fuente: BSC_LogisticaAndina_4Estados_2026.xlsx · Semáforo: ≥ 90 % logrado · 70–89 % en riesgo · &lt; 70 % crítico</div>
+<script>
+const P=["Financiera","Clientes","Procesos","Aprendizaje"],R=["Lima","Arequipa","La Libertad","Cusco"];
+const D=[
+// [persp,obj,kpi,unidad,meta,L,A,LL,C,prom,%]
+[0,"F1 Rentabilidad","ROE – Retorno sobre Patrimonio","%",18,17.5,16.2,15.8,14,15.88,88.2],
+[0,"F1 Rentabilidad","Margen EBITDA Operativo","%",22,21,20.2,19.5,18,19.68,89.4],
+[0,"F1 Rentabilidad","Utilidad Neta Anual","S/ MM",4.5,4.3,3.9,3.8,3.2,3.8,84.4],
+[0,"F2 Crecimiento","Crecimiento de Ventas YoY","%",15,14.8,13,11.5,10.2,12.38,82.5],
+[0,"F2 Crecimiento","Ingresos Totales por Flete","S/ MM",25,24.5,23,22.1,19.8,22.35,89.4],
+[0,"F2 Crecimiento","% Ingresos por Rutas Nuevas","%",20,18.5,16,14.2,12,15.18,75.9],
+[0,"F3 Costos","Costo Operativo por Km","S/",3.5,3.6,3.8,3.9,4.2,3.88,89.1],
+[0,"F3 Costos","Costo Adquisición de Cliente (CAC)","S/",500,480,520,550,590,535,93],
+[0,"F3 Costos","ROA – Retorno sobre Activos","%",10,9.5,8.8,8.2,7.5,8.5,85],
+[1,"C1 Satisfacción","OTIF – On-Time In-Full","%",95,93.5,91,89.2,85,89.68,94.4],
+[1,"C1 Satisfacción","CSAT – Satisfacción del Cliente","%",90,88,86.5,84,80,84.63,94],
+[1,"C1 Satisfacción","Tiempo Respuesta a Quejas","hrs",4,4.5,5.2,6,7.5,5.8,69],
+[1,"C2 Fidelización","Tasa de Retención de Clientes","%",92,90.5,88,86.2,82,86.68,94.2],
+[1,"C2 Fidelización","Tasa de Renovación de Contratos","%",85,83,80,76.5,72,77.88,91.6],
+[1,"C2 Fidelización","Churn Rate","%",4,4.8,5.5,6.2,7.8,6.08,65.8],
+[1,"C3 Expansión","Nuevas Cuentas Corporativas","#",40,38,32,28,22,30,75],
+[1,"C3 Expansión","Cuota de Mercado Regional","%",18,17.2,15.5,14,11.8,14.63,81.3],
+[1,"C3 Expansión","Costo por Lead Comercial","S/",250,240,265,280,310,273.8,90.5],
+[2,"P1 Excelencia Operativa","Utilización Eficiente de Flota","%",88,86,82.5,80,75,80.88,91.9],
+[2,"P1 Excelencia Operativa","Siniestralidad / Mermas","%",1.5,1.8,2.2,2.6,3.2,2.45,61.2],
+[2,"P1 Excelencia Operativa","Productividad Conductor/Ruta","S/ MM",.5,.48,.44,.41,.36,.42,84.5],
+[2,"P2 Innovación y Tecnología","Rutas con Telemetría/GPS","%",100,100,95,90,80,91.25,91.3],
+[2,"P2 Innovación y Tecnología","Tiempo de Carga / Cierre","hrs",2,2.2,2.5,2.8,3.2,2.68,74.6],
+[2,"P2 Innovación y Tecnología","Entregas Digitalizadas (POD)","%",90,88,82,78,68,79,87.8],
+[2,"P3 Mantenimiento","Mantenimiento Preventivo","%",98,96.5,94,91.5,88,92.5,94.4],
+[2,"P3 Mantenimiento","Fallas Mecánicas en Ruta","#",8,10,14,18,24,16.5,48.5],
+[2,"P3 Mantenimiento","Rotación de Inventario","veces",12,11.2,10,9.2,8,9.6,80],
+[3,"A1 Talento","Horas de Capacitación","hrs",45,42,38,35,30,36.25,80.6],
+[3,"A1 Talento","Personal Certificado en Manejo Seguro","%",90,88,82,78,70,79.5,88.3],
+[3,"A1 Talento","Índice de Competencias Clave","%",85,82,78,74,68,75.5,88.8],
+[3,"A2 Clima y Cultura","Clima Laboral y Satisfacción","%",80,78,74,71,65,72,90],
+[3,"A2 Clima y Cultura","Rotación de Personal","%",7,8.2,9.5,10.8,12.5,10.25,68.3],
+[3,"A2 Clima y Cultura","Evaluaciones de Desempeño","%",95,92,88,85,80,86.25,90.8],
+[3,"A3 Innovación y Sostenibilidad","Proyectos de Optimización de Activos","#",8,7,6,5,4,5.5,68.8],
+[3,"A3 Innovación y Sostenibilidad","Reducción Huella de Carbono","%",10,9,7.5,6,4.5,6.75,67.5],
+[3,"A3 Innovación y Sostenibilidad","Ideas de Mejora Implementadas","#",30,26,22,18,14,20,66.7]];
+const M=[[88.5,92.1,89.4,85.2,88.8],[84.2,88.5,84.1,81,84.5],[81,85,80.2,77.5,80.9],[75.4,78.2,72.8,70.1,74.1]],AVG=[82.3,86,81.6,78.5,82.1];
+const $=id=>document.getElementById(id),f=n=>(+n).toLocaleString("es-PE",{maximumFractionDigits:2});
+const si=p=>p>=90?0:p>=70?1:2,CL=["var(--ok)","var(--wa)","var(--cr)"],SN=["Logrado","En riesgo","Crítico"];
+const S={per:-1,rg:-1,st:-1,k:0};
+const pct=(d,rg)=>{if(rg<0)return d[10];const v=d[5+rg],m=d[4];return Math.round((m<d[8]?m/v:v/m)*1000)/10};
+const val=(d,rg)=>rg<0?d[9]:d[5+rg];
+const all=()=>D.map((d,i)=>({d,i,p:pct(d,S.rg),v:val(d,S.rg)})).filter(x=>S.per<0||x.d[0]==S.per);
+const scope=()=>all().filter(x=>S.st<0||si(x.p)==S.st);
+const row=()=>S.rg<0?AVG:M[S.rg];
+function nav(){
+ const it=(l,on,fn,bd,r)=>`<div class="nv ${on?"on":""}" onclick="${fn}"><span>${l}</span>${bd!=null?`<span class="bd ${r?"r":""}">${bd}</span>`:""}</div>`;
+ $("nav").innerHTML=`<div class="logo"><b>D</b>ASHBOARD</div><div class="sec">Perspectivas</div>`+
+ it("▦ Dashboard",S.per<0,"S.per=-1;S.st=-1;go()")+P.map((p,j)=>it("◈ "+p,S.per==j,`S.per=${j};S.st=-1;go()`)).join("")+
+ `<div class="sec">Estados</div>`+it("◎ Consolidado",S.rg<0,"S.rg=-1;go()")+R.map((r,i)=>it("⌖ "+r,S.rg==i,`S.rg=${i};go()`,D.filter(d=>pct(d,i)<70).length,1)).join("");
+}
+const sm=p=>{let d="M"+p[0];for(let i=0;i<p.length-1;i++){const a=p[i-1]||p[i],b=p[i],c=p[i+1],e=p[i+2]||c;d+=`C${[b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6]} ${[c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6]} ${c}`}return d};
+const Y=p=>185-(Math.min(Math.max(p,40),100)-40)/60*150;
+let SC=[];
+function chart(){
+ SC=scope();const n=SC.length;
+ if(n<2){$("ch").innerHTML=`<div style="padding:50px;text-align:center;color:var(--mut)">No hay suficientes KPIs en esta selección.</div>`;return}
+ const st=560/(n-1),X=j=>40+j*st,pts=SC.map((x,j)=>[X(j),Y(x.p)]),path=sm(pts);
+ $("ch").innerHTML=`<svg viewBox="0 0 620 215"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#4f7cff"/><stop offset="1" stop-color="#9b6bff"/></linearGradient></defs>
+ ${[50,70,90].map(v=>`<line x1="36" x2="610" y1="${Y(v)}" y2="${Y(v)}" stroke="${v==90?"#34d399":v==70?"#ff6b81":"#fff"}" stroke-opacity=".18" stroke-dasharray="3 5"/><text x="4" y="${Y(v)+3}" fill="#7d8bb0" font-size="9">${v}%</text>`).join("")}
+ <path d="${path}" transform="translate(0,9)" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="5"/>
+ <path d="${path}" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+ ${SC.map((x,j)=>`<circle cx="${pts[j][0]}" cy="${pts[j][1]}" r="2.5" fill="${CL[si(x.p)]}"/>${n<=18||j%2==0?`<text x="${pts[j][0]}" y="208" fill="#7d8bb0" font-size="8" text-anchor="middle">${String(x.i+1).padStart(2,"0")}</text>`:""}<rect x="${pts[j][0]-st/2}" y="0" width="${st}" height="195" fill="transparent" style="cursor:pointer" onmouseover="pick(${x.i})" onclick="pick(${x.i})"/>`).join("")}
+ <g id="mk"></g></svg>`;
+ mk();
+}
+function mk(){
+ const j=SC.findIndex(x=>x.i==S.k);if(j<0||!$("mk"))return;
+ const n=SC.length,x=40+j*560/(n-1),y=Y(SC[j].p),l=x>500,bx=l?x-84:x+10;
+ $("mk").innerHTML=`<line x1="${x}" x2="${x}" y1="${y}" y2="195" stroke="#fff" stroke-opacity=".25"/><circle cx="${x}" cy="${y}" r="6" fill="#fff" stroke="#4f7cff" stroke-width="3"/><rect x="${bx}" y="${Math.max(y-18,2)}" width="76" height="32" rx="6" fill="#0c1430" stroke="#4f7cff" stroke-opacity=".6"/><text x="${bx+8}" y="${Math.max(y-18,2)+13}" fill="#7d8bb0" font-size="9">KPI-${String(S.k+1).padStart(2,"0")}</text><text x="${bx+8}" y="${Math.max(y-18,2)+26}" fill="#fff" font-size="12" font-weight="700">${SC[j].p}%</text>`;
+}
+function ring(v,l){const c=2*Math.PI*30,k=v>=90?"#34d399":v>=70?"#f5b942":"#ff6b81";
+ return `<div><svg viewBox="0 0 84 84" style="width:84px"><circle cx="42" cy="42" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="7"/><circle cx="42" cy="42" r="30" fill="none" stroke="${k}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${c*v/100} ${c}" transform="rotate(-90 42 42)"/><text x="42" y="46" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">${v}%</text></svg>${l}</div>`}
+function panel(){
+ const d=D[S.k],p=pct(d,S.rg),k=si(p);
+ $("dp").innerHTML=`<div class="lb">KPI NUMBER</div><div class="id">KPI-${String(S.k+1).padStart(2,"0")}</div>
+ <div class="fl"><span class="lb">Indicador</span><div>${d[2]}</div></div>
+ <div class="c2"><div class="fl"><span class="lb">Perspectiva</span><div>${P[d[0]]}</div></div><div class="fl"><span class="lb">Objetivo</span><div>${d[1].split(" ")[0]}</div></div>
+ <div class="fl"><span class="lb">Meta</span><div>${f(d[4])} ${d[3]}</div></div><div class="fl"><span class="lb">${S.rg<0?"Promedio":R[S.rg]}</span><div>${f(val(d,S.rg))} ${d[3]}</div></div></div>
+ <div class="fl"><span class="lb">Cumplimiento y estado</span><div style="display:flex;align-items:center;gap:10px"><b style="font-size:20px;color:${CL[k]}">${p}%</b><span class="st" style="background:${CL[k]};color:#0a1020">${SN[k]}</span></div></div>
+ <div class="fl"><span class="lb">Valor por estado</span>${R.map((r,i)=>{const q=pct(d,i);return `<div class="rb ${S.rg==i?"s":""}"><span>${r}</span><span class="t"><i style="width:${Math.min(q,100)}%;background:${CL[si(q)]}"></i></span><b>${f(d[5+i])}</b></div>`}).join("")}</div>`;
+}
+function pick(i){S.k=i;mk();panel()}
+function go(){
+ nav();const a=all(),c=[0,0,0];a.forEach(x=>c[si(x.p)]++);
+ $("ttl").textContent=(S.rg<0?"CONSOLIDADO":R[S.rg].toUpperCase())+" · "+(S.per<0?"4 PERSPECTIVAS":P[S.per].toUpperCase());
+ $("pills").innerHTML=["Todos los KPIs","Logrados","En riesgo","Críticos"].map((t,i)=>`<button class="pill ${S.st==i-1?"on":""}" onclick="S.st=${i-1};go()">${t}</button>`).join("");
+ $("tiles").innerHTML=[[0,"Logrados","✓","var(--ok)"],[1,"En riesgo","!","#fff"],[2,"Críticos","✕","var(--cr)"]].map(t=>`<div class="tile ${t[0]==1?"mid":""} ${S.st==t[0]?"act":""}" onclick="S.st=${S.st==t[0]?-1:t[0]};go()" style="color:${t[3]}"><div class="n">${String(c[t[0]]).padStart(2,"0")}</div><small>${t[1]} · de ${a.length} KPIs</small><div class="ic">${t[2]}</div></div>`).join("");
+ const sc=scope();if(sc.length&&!sc.some(x=>x.i==S.k))S.k=sc[0].i;
+ $("sub").textContent=sc.length+" indicadores";
+ chart();panel();
+ const r=row();$("rings").innerHTML=P.map((p,j)=>ring(r[j],p)).join("");
+ const g=r[4],ar=Math.PI*70,k=si(g);
+ $("gauge").innerHTML=`<svg viewBox="0 0 160 100" style="max-width:260px;margin:6px auto 0"><path d="M10 90A70 70 0 0 1 150 90" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="9" stroke-linecap="round"/><path d="M10 90A70 70 0 0 1 150 90" fill="none" stroke="${["#34d399","#4f7cff","#ff6b81"][k]}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${ar*g/100} ${ar}"/><text x="80" y="82" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">${g}%</text></svg><div class="lg"><span><i style="border-color:#4f7cff"></i>${S.rg<0?"Consolidado":R[S.rg]} ${g}%</span>${S.rg>=0?`<span><i style="border-color:#34d399"></i>Consolidado ${AVG[4]}%</span>`:""}</div>`;
+ $("bn").textContent=D.filter(d=>pct(d,S.rg)<70).length;
+}
+// go() will be called after successful login
+// Login handling
+const users = { "alice":"1234", "bob":"5678" };
+document.getElementById("loginBtn").addEventListener("click",()=>{
+  const u=document.getElementById("userInput").value;
+  const p=document.getElementById("passInput").value;
+  if(users[u]===p){
+    document.getElementById("loginOverlay").style.display="none";
+    go();
+  } else {
+    document.getElementById("loginMsg").textContent="Credenciales inválidas.";
+  }
+});
+</script></body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard BSC · Logística Andina 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <div class="logo-icon"><i class="fa-solid fa-truck-fast"></i></div>
+    <h2>LOGÍSTICA ANDINA</h2><p>Balanced Scorecard Enterprise 2026</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="input-group"><label>Usuario</label><input class="input-field" id="loginUser" required value="admin"></div>
+      <div class="input-group"><label>Contraseña</label><input type="password" class="input-field" id="loginPass" required value="bsc2026"></div>
+      <div class="remember-row"><label><input type="checkbox" id="rememberMe" checked> Recordar sesión</label></div>
+      <button class="btn-login">Iniciar Sesión</button>
+    </form>
+    <div class="auth-hint">admin / bsc2026 · jose.aroapaza / andina2026</div>
+  </div>
+</div>
+<div class="toast" id="toastBox"><i class="fa-solid fa-circle-check" style="color:var(--ok)"></i><span id="toastMsg"></span></div>
+<div class="shell">
+  <aside id="nav"></aside>
+  <section class="ctr">
+    <h1>RESUMEN · <span id="ttl"></span></h1>
+    <div class="pills" id="pills"></div><div class="tiles" id="tiles"></div>
+    <div class="cd"><h2>CUMPLIMIENTO <b>POR KPI</b> <span id="sub"></span></h2><div id="ch"></div></div>
+    <div class="two"><div class="cd"><h2>CUMPLIMIENTO <b>POR PERSPECTIVA</b></h2><div class="rg" id="rings"></div></div><div class="cd"><h2>CUMPLIMIENTO <b>GLOBAL</b></h2><div id="gauge"></div></div></div>
+  </section>
+  <section class="rt">
+    <div class="us" onclick="toggleUserMenu()"><div class="av" id="userAvatar">JA</div><div><b id="userName">Jose Aroapaza</b><br><span style="color:var(--mut);font-size:11px" id="userRole">Administrador BSC</span></div><div class="bell">🔔<em id="bn"></em></div><div class="user-menu" id="userMenu"><div class="user-menu-item" onclick="logout(event)"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</div></div></div>
+    <div class="dp" id="dp"></div>
+  </section>
+</div>
+<div class="foot">Fuente: BSC_LogisticaAndina_4Estados_2026.xlsx</div>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
